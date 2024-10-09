@@ -49,14 +49,8 @@ def is_equal(list_1: list[int], list_2: list[int]) -> bool:
 
 def extend(original_list: list[int], append_list: list[int]) -> None:
     """Appends second list's values to the end of the first"""
-    temp_list = []
-    # Temporary list stores elements in original order s
-    # Since using pop reverses order
-    while len(append_list) > 0:
-        temp_list.append(append_list.pop())
-    # Used pop to remove elements form end of append_list
-    # And append them to the temporary list
-    while len(temp_list) > 0:
-        original_list.append(temp_list.pop())
-    # Appends elements from temporary list to the original list
-    # In the correct order
+    for elem in append_list:
+        # Used for loop to iterate through the append list
+        original_list.append(elem)
+    # Adds each element to the original list
+    print(original_list)
