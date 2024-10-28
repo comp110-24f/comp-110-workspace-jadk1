@@ -6,7 +6,8 @@ __author__ = "730734418"
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
     invert_dict: dict[str, str] = {}
     # Empty dict stores the invetred key-value pairs
-    for key, value in input_dict:
+    for key in input_dict:
+        value = input_dict[key]
         if value in invert_dict:
             # Checks if the value(new key) already exists
             raise KeyError("Duplicate keys not allowed")
@@ -18,16 +19,19 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
 def favorite_color(colors: dict[str, str]) -> str:
     count: dict[str, int] = {}
     # Create empty dict to store color counts
-    for color in colors:
-        # Either increase the color count if it exists, or add to dict with count 1
+    for name in colors:
+        color = colors[name]
+        # Populate dict with each name's associated color
         if color in count:
+            # Add to count if color exists, or add to dict
             count[color] += 1
         else:
             count[color] = 1
     max: int = -1
     favorite: str = ""
     # Max count and favorite color variables
-    for color in colors:
+    for name in colors:
+        color = colors[name]
         if count[color] > max:
             # If color count is higher than current max,
             # Set color as new favorite
